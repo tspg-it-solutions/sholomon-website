@@ -1,0 +1,53 @@
+.navbar {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  @include transform-translate(0, -50%);
+
+  &__list {
+    width: 100px;
+    height: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &--item {
+      position: relative;
+      width: 100px;
+      padding: 0 20px 0 0;
+      margin: 15px 0;
+      float: left;
+
+      & > a {
+        color: inherit;
+        cursor: pointer;
+
+        & > div {
+          position: absolute;
+          background-color: transparent;
+          border: 2px solid $mine-shaft;
+          width: 1rem;
+          height: 1rem;
+          right: 0;
+          @include border-radius(50%);
+        }
+
+        & > span {
+          position: absolute;
+          display: none;
+          right: 25px;
+          @include transition(250ms);
+        }
+
+        &:hover div {
+          background-color: $mine-shaft;
+        }
+
+        &:hover span{
+          display: block;
+          @include transition(250ms);
+        }
+      }
+    }
+  }
+}

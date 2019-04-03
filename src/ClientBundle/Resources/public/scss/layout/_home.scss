@@ -1,0 +1,8 @@
+#main {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+#main.loaded {
+  opacity: 1;
+}

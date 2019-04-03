@@ -1,15 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.75, maximum-scale=0.75, minimum-scale=0.75">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% block meta %}
     {% endblock meta %}
     {% block stylesheets %}
-        {% stylesheets filter="scssphp" output="css/main.css"
-            "bundles/client/scss/main.scss" %}
+        {% stylesheets filter="scssphp" output="css/main.css" "bundles/client/scss/main.scss" %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
     {% endblock stylesheets %}
@@ -22,14 +20,23 @@
     <script type="text/javascript" src="https://alexfox.dev/laxxx/lib/lax.min.js"></script>
     <script type="text/javascript">
         window.onload = function() {
-            lax.setup() // init
+            document.getElementById("main").classList.add("loaded")
 
-            const updateLax = () => {
+            lax.setup()
+
+            const update = () => {
                 lax.update(window.scrollY)
-                window.requestAnimationFrame(updateLax)
+                window.requestAnimationFrame(update)
             }
 
-            window.requestAnimationFrame(updateLax)
+            window.requestAnimationFrame(update)
+
+            let w = window.innerWidth
+            window.addEventListener("resize", function() {
+                if(w !== window.innerWidth) {
+                    lax.updateElements()
+                }
+            });
         }
     </script>
 {% endblock javascripts %}
