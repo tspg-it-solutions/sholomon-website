@@ -1,0 +1,16 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  color: $mine-shaft;
+  @include box-sizing();
+}
+
+*,
+::before,
+::after {
+  @include box-sizing();
+}
