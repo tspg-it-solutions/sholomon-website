@@ -6,6 +6,7 @@ html, body {
   font-size: 1rem;
   font-family: 'Montserrat', sans-serif;
   color: $mine-shaft;
+  overflow-x: hidden;
   @include box-sizing();
 }
 
